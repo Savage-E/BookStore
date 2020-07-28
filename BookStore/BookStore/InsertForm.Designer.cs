@@ -40,6 +40,7 @@
             this._yearLbl = new System.Windows.Forms.Label();
             this._addBtn2 = new System.Windows.Forms.Button();
             this._cancelBtn = new System.Windows.Forms.Button();
+            this._noteLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _TitleTbx
@@ -137,11 +138,22 @@
             this._cancelBtn.UseVisualStyleBackColor = true;
             this._cancelBtn.Click += new System.EventHandler(this._cancelBtn_Click);
             // 
+            // _noteLbl
+            // 
+            this._noteLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._noteLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._noteLbl.Location = new System.Drawing.Point(341, 121);
+            this._noteLbl.Name = "_noteLbl";
+            this._noteLbl.Size = new System.Drawing.Size(107, 126);
+            this._noteLbl.TabIndex = 12;
+            this._noteLbl.Text = "Замечание:Если авторов несколько, используйте \";\"";
+            // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 450);
+            this.ClientSize = new System.Drawing.Size(451, 450);
+            this.Controls.Add(this._noteLbl);
             this.Controls.Add(this._cancelBtn);
             this.Controls.Add(this._addBtn2);
             this.Controls.Add(this._yearLbl);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Label _yearLbl;
         private System.Windows.Forms.Button _addBtn2;
         private System.Windows.Forms.Button _cancelBtn;
+        private System.Windows.Forms.Label _noteLbl;
     }
 }

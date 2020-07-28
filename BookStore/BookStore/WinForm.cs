@@ -34,10 +34,11 @@ namespace BookStore
                         if (xnode.Attributes.Count > 0)
                         {
                             n = DataGridView.Rows.Add();
+                            //Get attributed node: "category"
                             XmlNode attr = xnode.Attributes.GetNamedItem("category");
                             if (attr != null)
                                 DataGridView.Rows[n].Cells[2].Value = attr.Value;
-
+                            //Get childnodes of current node.
                             foreach (XmlNode childnode in xnode.ChildNodes)
                             {
                                 if (childnode.Name == "year")
@@ -79,14 +80,17 @@ namespace BookStore
         private void SaveXml(string filepath)
         {
             XDocument xDoc = new XDocument(new XDeclaration("1.0", "utf-8", null));
+            //Create xml file.
             XElement bookstore = new XElement("bookstore");
             for (int i = 0; i < DataGridView.Rows.Count; i++)
             {
+                //Create book node.
                 XElement xElement = new XElement("book");
-
+                //Create attribute element.
                 XAttribute bookCategoryAttr = new XAttribute("category", DataGridView.Rows[i].Cells[2].Value.ToString());
                 XElement bookTitleElem = new XElement("title", DataGridView.Rows[i].Cells[0].Value);
                 xElement.Add(bookTitleElem);
+                //Array of authors.
                 string[] names = DataGridView.Rows[i].Cells[1].Value.ToString().Split(';');
                 int lengthNames = names.Length;
 
@@ -97,64 +101,30 @@ namespace BookStore
                     bookAuthorElems[j] = new XElement("author", names[j]);
                     xElement.Add(bookAuthorElems[j]);
                 }
-
+                //Create last nodes.
                 XElement bookYearElem = new XElement("year", DataGridView.Rows[i].Cells[4].Value);
                 XElement bookpriceElem = new XElement("price", DataGridView.Rows[i].Cells[3].Value);
-
+                //Add nodes to the element.
                 xElement.Add(bookCategoryAttr);
-
                 xElement.Add(bookYearElem);
                 xElement.Add(bookpriceElem);
 
+                //Add to root node.
                 bookstore.Add(xElement);
             }
+            //Add root element to whole document.
             xDoc.Add(bookstore);
 
             xDoc.Save(filepath);
         }
 
-        private XDocument SaveXmlTemp()
-        {
-            XDocument xDoc = new XDocument(new XDeclaration("1.0", "utf-8", null));
-            XElement bookstore = new XElement("bookstore");
-            for (int i = 0; i < DataGridView.Rows.Count; i++)
-            {
-                XElement xElement = new XElement("book");
-
-                XAttribute bookCategoryAttr = new XAttribute("category", DataGridView.Rows[i].Cells[2].Value.ToString());
-                XElement bookTitleElem = new XElement("title", DataGridView.Rows[i].Cells[0].Value);
-                xElement.Add(bookTitleElem);
-                string[] names = DataGridView.Rows[i].Cells[1].Value.ToString().Split(';');
-                int lengthNames = names.Length;
-
-                XElement[] bookAuthorElems = new XElement[lengthNames];
-
-                for (int j = 0; j < lengthNames; j++)
-                {
-                    bookAuthorElems[j] = new XElement("author", names[j]);
-                    xElement.Add(bookAuthorElems[j]);
-                }
-
-                XElement bookYearElem = new XElement("year", DataGridView.Rows[i].Cells[4].Value);
-                XElement bookpriceElem = new XElement("price", DataGridView.Rows[i].Cells[3].Value);
-
-                xElement.Add(bookCategoryAttr);
-
-                xElement.Add(bookYearElem);
-                xElement.Add(bookpriceElem);
-
-                bookstore.Add(xElement);
-            }
-            xDoc.Add(bookstore);
-
-            return xDoc;
-        }
-
         private void _AddBtn_Click(object sender, EventArgs e)
         {
             InsertForm f = new InsertForm();
+            //Link annex form to main one.
             f.Owner = this;
             f.ShowDialog();
+            //If user presses "Отмена", do nothing.
             if (f.ActiveControl.Text != "Отмена")
             {
                 AddingData(f, -1);
@@ -191,6 +161,7 @@ namespace BookStore
             DataGridView.AllowUserToAddRows = false;
 
             int n;
+
             if (index < 0)
             {
                 n = DataGridView.Rows.Count;
@@ -225,6 +196,7 @@ namespace BookStore
                 MessageBox.Show("Таблица пуста!");
             else
             {
+                //Get selected rows and then delete it.
                 int index = DataGridView.CurrentRow.Index;
 
                 DeleteRecord(index);
@@ -256,8 +228,8 @@ namespace BookStore
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                if(!saveFile.FileName.Contains(".html"))
-                saveFile.FileName +=".html";
+                if (!saveFile.FileName.Contains(".html"))
+                    saveFile.FileName += ".html";
                 // Execute the transform and output the results to a file.
                 xslt.Transform(inputXml, saveFile.FileName);
             }
