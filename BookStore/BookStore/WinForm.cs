@@ -148,8 +148,8 @@ namespace BookStore
             xDoc.Add(bookstore);
 
             return xDoc;
-
         }
+
         private void _AddBtn_Click(object sender, EventArgs e)
         {
             InsertForm f = new InsertForm();
@@ -233,28 +233,34 @@ namespace BookStore
 
         private void _ReportHtmlBtn_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFile = new SaveFileDialog();
             MessageBox.Show("Выберите путь для сохранения xml файла");
+            SaveFileDialog saveFile = new SaveFileDialog();
+
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                SaveXml(saveFile.FileName+".xml");
+                if (!saveFile.FileName.Contains(".xml"))
+                    saveFile.FileName += ".xml";
+
+                SaveXml(saveFile.FileName);
             }
-            TransformXMLToHTML(saveFile.FileName+".xml", "rex.xsl");
+            TransformXMLToHTML(saveFile.FileName, "rex.xsl");
         }
 
-        private void TransformXMLToHTML(string inputXml,string xsltString)
+        private void TransformXMLToHTML(string inputXml, string xsltString)
         {
+            MessageBox.Show("Выберите путь для сохранения отчета в html");
             XslCompiledTransform xslt = new XslCompiledTransform();
             xslt.Load(xsltString);
 
             SaveFileDialog saveFile = new SaveFileDialog();
-            MessageBox.Show("Выберите путь для сохранения отчета в html");
+
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
+                if(!saveFile.FileName.Contains(".html"))
+                saveFile.FileName +=".html";
                 // Execute the transform and output the results to a file.
-                xslt.Transform(inputXml, saveFile.FileName+".html");
+                xslt.Transform(inputXml, saveFile.FileName);
             }
-            
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Massi\\Desktop\\BookStore\\TableTools\\TableTools.csproj": {}
+    "C:\\Users\\Massi\\Documents\\GitHub\\BookStore\\BookStore\\TableTools\\TableTools.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Massi\\Desktop\\BookStore\\TableTools\\TableTools.csproj": {
+    "C:\\Users\\Massi\\Documents\\GitHub\\BookStore\\BookStore\\TableTools\\TableTools.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Massi\\Desktop\\BookStore\\TableTools\\TableTools.csproj",
+        "projectUniqueName": "C:\\Users\\Massi\\Documents\\GitHub\\BookStore\\BookStore\\TableTools\\TableTools.csproj",
         "projectName": "TableTools",
-        "projectPath": "C:\\Users\\Massi\\Desktop\\BookStore\\TableTools\\TableTools.csproj",
+        "projectPath": "C:\\Users\\Massi\\Documents\\GitHub\\BookStore\\BookStore\\TableTools\\TableTools.csproj",
         "packagesPath": "C:\\Users\\Massi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Massi\\Desktop\\BookStore\\TableTools\\obj\\",
+        "outputPath": "C:\\Users\\Massi\\Documents\\GitHub\\BookStore\\BookStore\\TableTools\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Massi\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -31,7 +31,7 @@ namespace BookStore
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this._OpenXmlBtn = new System.Windows.Forms.Button();
             this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Цена = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,9 +129,9 @@ namespace BookStore
             this.DataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.DataGridView.RowHeadersVisible = false;
             this.DataGridView.RowHeadersWidth = 62;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView.Size = new System.Drawing.Size(717, 335);
             this.DataGridView.TabIndex = 0;
             // 

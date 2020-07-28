@@ -18,3 +18,13 @@ C:\Users\Massi\Desktop\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateRe
 C:\Users\Massi\Desktop\BookStore\BookStore\obj\Debug\BookStore.exe
 C:\Users\Massi\Desktop\BookStore\BookStore\obj\Debug\BookStore.pdb
 C:\Users\Massi\Desktop\BookStore\BookStore\obj\Debug\BookStore.InsertForm.resources
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\BookStore.exe.config
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\BookStore.exe
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\bin\Debug\BookStore.pdb
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.csprojAssemblyReference.cache
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.InsertForm.resources
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.WinForm.resources
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.Properties.Resources.resources
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateResource.cache
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.exe
+C:\Users\Massi\Documents\GitHub\BookStore\BookStore\BookStore\obj\Debug\BookStore.pdb
