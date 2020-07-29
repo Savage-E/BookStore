@@ -191,7 +191,7 @@ namespace BookStore
             DataGridView.Rows[n].Cells[0].Value = f.Title;
             DataGridView.Rows[n].Cells[1].Value = f.Author;
             DataGridView.Rows[n].Cells[2].Value = f.Category;
-            if (!f.Price.Contains("."))
+            if (!f.Price.Contains(".") && !(f.Price == "") )
                 DataGridView.Rows[n].Cells[3].Value = f.Price + ".00";
             else
             DataGridView.Rows[n].Cells[3].Value = f.Price;
