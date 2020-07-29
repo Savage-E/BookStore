@@ -13,32 +13,33 @@ namespace BookStore
 
         public string Title
         {
-            get { return _TitleTbx.Text; }
-            set { _TitleTbx.Text = value; }
+            get { return _TitleTbx.Text.Trim(); }
+            set { _TitleTbx.Text = value.Trim(); }
         }
 
         public string Author
         {
-            get { return _AuthorTbx.Text; }
-            set { _AuthorTbx.Text = value; }
+            get { return _AuthorTbx.Text.Trim(); }
+            set { _AuthorTbx.Text = value.Trim(); }
         }
 
         public string Category
         {
-            get { return _CategoryTbx.Text; }
-            set { _CategoryTbx.Text = value; }
+            get { return _CategoryTbx.Text.Trim(); }
+
+            set { _CategoryTbx.Text = value.Trim(); }
         }
 
         public string Year
         {
-            get { return _YearTbx.Text; }
-            set { _YearTbx.Text = value; }
+            get { return _YearMaskedTbx.Text.Trim(); }
+            set { _YearMaskedTbx.Text =  value.Trim(); }
         }
 
         public string Price
         {
-            get { return _PriceTbx.Text; }
-            set { _PriceTbx.Text = value; }
+            get { return _priceTbx.Text.Trim(' '); }
+            set { _priceTbx.Text = value.Trim(); }
         }
 
         private void _cancelBtn_Click(object sender, EventArgs e)
@@ -51,6 +52,11 @@ namespace BookStore
             Close();
         }
 
-        
+        private void _priceTbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 46
+                               && e.KeyChar != 8)
+                e.Handled = true;
+        }
     }
 }

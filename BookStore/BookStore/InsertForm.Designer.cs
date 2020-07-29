@@ -31,8 +31,6 @@
             this._TitleTbx = new System.Windows.Forms.TextBox();
             this._AuthorTbx = new System.Windows.Forms.TextBox();
             this._CategoryTbx = new System.Windows.Forms.TextBox();
-            this._PriceTbx = new System.Windows.Forms.TextBox();
-            this._YearTbx = new System.Windows.Forms.TextBox();
             this._titleLbl = new System.Windows.Forms.Label();
             this._authorLbl = new System.Windows.Forms.Label();
             this._categoryLbl = new System.Windows.Forms.Label();
@@ -41,6 +39,8 @@
             this._addBtn2 = new System.Windows.Forms.Button();
             this._cancelBtn = new System.Windows.Forms.Button();
             this._noteLbl = new System.Windows.Forms.Label();
+            this._YearMaskedTbx = new System.Windows.Forms.MaskedTextBox();
+            this._priceTbx = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // _TitleTbx
@@ -63,20 +63,6 @@
             this._CategoryTbx.Name = "_CategoryTbx";
             this._CategoryTbx.Size = new System.Drawing.Size(188, 26);
             this._CategoryTbx.TabIndex = 2;
-            // 
-            // _PriceTbx
-            // 
-            this._PriceTbx.Location = new System.Drawing.Point(122, 278);
-            this._PriceTbx.Name = "_PriceTbx";
-            this._PriceTbx.Size = new System.Drawing.Size(188, 26);
-            this._PriceTbx.TabIndex = 3;
-            // 
-            // _YearTbx
-            // 
-            this._YearTbx.Location = new System.Drawing.Point(122, 326);
-            this._YearTbx.Name = "_YearTbx";
-            this._YearTbx.Size = new System.Drawing.Size(188, 26);
-            this._YearTbx.TabIndex = 4;
             // 
             // _titleLbl
             // 
@@ -148,11 +134,29 @@
             this._noteLbl.TabIndex = 12;
             this._noteLbl.Text = "Замечание: Если авторов несколько, используйте \";\" для разделения.";
             // 
+            // _YearMaskedTbx
+            // 
+            this._YearMaskedTbx.Location = new System.Drawing.Point(122, 323);
+            this._YearMaskedTbx.Mask = "0000";
+            this._YearMaskedTbx.Name = "_YearMaskedTbx";
+            this._YearMaskedTbx.Size = new System.Drawing.Size(188, 26);
+            this._YearMaskedTbx.TabIndex = 13;
+            // 
+            // _priceTbx
+            // 
+            this._priceTbx.Location = new System.Drawing.Point(122, 281);
+            this._priceTbx.Name = "_priceTbx";
+            this._priceTbx.Size = new System.Drawing.Size(188, 26);
+            this._priceTbx.TabIndex = 14;
+            this._priceTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._priceTbx_KeyPress);
+            // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 450);
+            this.Controls.Add(this._priceTbx);
+            this.Controls.Add(this._YearMaskedTbx);
             this.Controls.Add(this._noteLbl);
             this.Controls.Add(this._cancelBtn);
             this.Controls.Add(this._addBtn2);
@@ -161,8 +165,6 @@
             this.Controls.Add(this._categoryLbl);
             this.Controls.Add(this._authorLbl);
             this.Controls.Add(this._titleLbl);
-            this.Controls.Add(this._YearTbx);
-            this.Controls.Add(this._PriceTbx);
             this.Controls.Add(this._CategoryTbx);
             this.Controls.Add(this._AuthorTbx);
             this.Controls.Add(this._TitleTbx);
@@ -178,8 +180,6 @@
         private System.Windows.Forms.TextBox _TitleTbx;
         private System.Windows.Forms.TextBox _AuthorTbx;
         private System.Windows.Forms.TextBox _CategoryTbx;
-        private System.Windows.Forms.TextBox _PriceTbx;
-        private System.Windows.Forms.TextBox _YearTbx;
         private System.Windows.Forms.Label _titleLbl;
         private System.Windows.Forms.Label _authorLbl;
         private System.Windows.Forms.Label _categoryLbl;
@@ -188,5 +188,7 @@
         private System.Windows.Forms.Button _addBtn2;
         private System.Windows.Forms.Button _cancelBtn;
         private System.Windows.Forms.Label _noteLbl;
+        private System.Windows.Forms.MaskedTextBox _YearMaskedTbx;
+        private System.Windows.Forms.TextBox _priceTbx;
     }
 }
