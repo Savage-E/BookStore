@@ -142,17 +142,17 @@
             // 
             this._noteLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._noteLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this._noteLbl.Location = new System.Drawing.Point(341, 121);
+            this._noteLbl.Location = new System.Drawing.Point(16, 24);
             this._noteLbl.Name = "_noteLbl";
-            this._noteLbl.Size = new System.Drawing.Size(107, 126);
+            this._noteLbl.Size = new System.Drawing.Size(294, 69);
             this._noteLbl.TabIndex = 12;
-            this._noteLbl.Text = "Замечание:Если авторов несколько, используйте \";\"";
+            this._noteLbl.Text = "Замечание: Если авторов несколько, используйте \";\" для разделения.";
             // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 450);
+            this.ClientSize = new System.Drawing.Size(366, 450);
             this.Controls.Add(this._noteLbl);
             this.Controls.Add(this._cancelBtn);
             this.Controls.Add(this._addBtn2);
