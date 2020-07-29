@@ -38,7 +38,7 @@ namespace BookStore
                             XmlNode attr = xnode.Attributes.GetNamedItem("category");
                             if (attr != null)
                                 DataGridView.Rows[n].Cells[2].Value = attr.Value;
-                            //Get childnodes of current node.
+                            //Get childnodes of the current node.
                             foreach (XmlNode childnode in xnode.ChildNodes)
                             {
                                 if (childnode.Name == "year")
@@ -73,10 +73,15 @@ namespace BookStore
             SaveFileDialog saveFile = new SaveFileDialog();
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
+                if (!saveFile.FileName.Contains(".xml"))
+                    saveFile.FileName += ".xml";
                 SaveXml(saveFile.FileName);
             }
         }
-
+        /// <summary>
+        /// Saving XML file to the needded path
+        /// </summary>
+        /// <param name="filepath">Path of </param>
         private void SaveXml(string filepath)
         {
             XDocument xDoc = new XDocument(new XDeclaration("1.0", "utf-8", null));
@@ -145,6 +150,7 @@ namespace BookStore
                 InsertForm f = new InsertForm();
                 f.Owner = this;
 
+                //Add data from DataGridView to InsertForm.
                 f.Title = (string)DataGridView.Rows[index].Cells[0].Value;
                 f.Author = (string)DataGridView.Rows[index].Cells[1].Value;
                 f.Category = (string)DataGridView.Rows[index].Cells[2].Value;
@@ -155,7 +161,11 @@ namespace BookStore
                 AddingData(f, index);
             }
         }
-
+        /// <summary>
+        /// Adding and editing data in DataGridView
+        /// </summary>
+        /// <param name="f">InsertForm</param>
+        /// <param name="index">edited row</param>
         private void AddingData(InsertForm f, int index)
         {
             DataGridView.AllowUserToAddRows = false;
@@ -184,7 +194,10 @@ namespace BookStore
             DataGridView.Rows[n].Cells[3].Value = f.Price;
             DataGridView.Rows[n].Cells[4].Value = f.Year;
         }
-
+        /// <summary>
+        /// Deleting needded row
+        /// </summary>
+        /// <param name="index">Index of selected row</param>
         private void DeleteRecord(int index)
         {
             DataGridView.Rows.RemoveAt(index);
@@ -192,6 +205,7 @@ namespace BookStore
 
         private void _DeleteBtn_Click(object sender, EventArgs e)
         {
+            //Check whether rows are empty, otherwise delete the selected row.
             if (DataGridView.Rows.Count == 0)
                 MessageBox.Show("Таблица пуста!");
             else
@@ -205,19 +219,25 @@ namespace BookStore
 
         private void _ReportHtmlBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Выберите путь для сохранения xml файла");
-            SaveFileDialog saveFile = new SaveFileDialog();
-
-            if (saveFile.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
-                if (!saveFile.FileName.Contains(".xml"))
-                    saveFile.FileName += ".xml";
-
-                SaveXml(saveFile.FileName);
+                try
+                {
+                    TransformXMLToHTML(openFile.FileName, "rex.xsl");
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка открытия файла!");
+                }
             }
-            TransformXMLToHTML(saveFile.FileName, "rex.xsl");
         }
 
+        /// <summary>
+        /// Transforming XML to  HTML.
+        /// </summary>
+        /// <param name="inputXml">Transformed XML file</param>
+        /// <param name="xsltString">XSLT file</param>
         private void TransformXMLToHTML(string inputXml, string xsltString)
         {
             MessageBox.Show("Выберите путь для сохранения отчета в html");
@@ -228,10 +248,18 @@ namespace BookStore
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                if (!saveFile.FileName.Contains(".html"))
-                    saveFile.FileName += ".html";
-                // Execute the transform and output the results to a file.
-                xslt.Transform(inputXml, saveFile.FileName);
+                try
+                {
+                    if (!saveFile.FileName.Contains(".html"))
+                        saveFile.FileName += ".html";
+
+                    // Execute the transform and output the results to a file.
+                    xslt.Transform(inputXml, saveFile.FileName);
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка открытия файла!");
+                }
             }
         }
     }
