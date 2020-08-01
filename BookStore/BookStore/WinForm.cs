@@ -223,6 +223,7 @@ namespace BookStore
         private void _ReportHtmlBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
+            MessageBox.Show("Выберите исходный файл XML!");
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 try
